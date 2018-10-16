@@ -242,7 +242,9 @@ angular.module('vds.multirange.lite', [])
                 //
                 scope.ngModel.map(function(el){if (!el.color || el.color==="undefined" || el.color.length < 3)el.color=defaultColor;});
                 scope.$watch('ngModel',function(nv,ov) {
-					if (nv==ov) return;
+                    if (angular.equals(nv, ov)) {
+                        return;
+                    }
 					// Control the sliders positions
 					var thisSliderVal;
 					var nextSliderVal;
